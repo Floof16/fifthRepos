@@ -86,7 +86,8 @@ namespace BankingApp
             }
             else
             // Handle insufficient fund
-                if (amountTransfer > fromBalance)
+                if(((fromRadioButtonChecked == "ChequeRadioButtonOn") && (amountTransfer  + 2.0m > fromBalance))||
+                    ((fromRadioButtonChecked == "ChequeRadioButtonOn") && (amountTransfer> fromBalance)))
                 {
                     MessageBox.Show("Error! You have insufficient fund. Enter another amount");
                     Keyboard.Focus(amountTextBox);
@@ -214,6 +215,7 @@ namespace BankingApp
             fromBalance = cChequeBalance;
             fromRadioButtonChecked = "ChequeRadioButtonOn";  // this variable only stored a string
         }
+
 
         private void fromInvestmentRadioButton_Click(object sender, RoutedEventArgs e)
         {
